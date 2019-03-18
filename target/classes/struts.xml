@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 修改常量管理struts中的action的工程，这个常量的使用，必须引入spring和struts的整合包，不然spring无法管理struts2 Action的实体类-->
+    <constant name="struts.objectFactory" value="spring"/>
+
+    <package name="user" extends="struts-default" namespace="/">
+        <action name="user_*" class="com.csu.wwj.action.UserAction" method="{1}">
+            <result name="success">/index.jsp</result>
+            <allowed-methods>method1,saveUser</allowed-methods>
+        </action>
+    </package>
+</struts>
