@@ -1,8 +1,8 @@
 package com.csu.wwj.dao;
 
-import com.csu.wwj.model.UserEntity;
+import com.csu.wwj.model.User;
 
 public interface UserDao {
-    UserEntity getUser(String name);
-    void savaUser(UserEntity user);
+    User getUser(String name);
+    void savaUser(User user);
 }

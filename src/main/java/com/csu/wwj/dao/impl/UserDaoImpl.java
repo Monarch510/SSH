@@ -1,7 +1,7 @@
 package com.csu.wwj.dao.impl;
 
 import com.csu.wwj.dao.UserDao;
-import com.csu.wwj.model.UserEntity;
+import com.csu.wwj.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -13,14 +13,14 @@ public class UserDaoImpl implements UserDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public UserEntity getUser(String name) {
+    public User getUser(String name) {
         Session session = sessionFactory.getCurrentSession();
-        UserEntity user = (UserEntity) session.get(UserEntity.class, name);
+        User user = (User) session.get(User.class, name);
         return user;
     }
 
     @Override
-    public void savaUser(UserEntity user) {
+    public void savaUser(User user) {
         Session session = sessionFactory.getCurrentSession();
         session.save(user);
     }

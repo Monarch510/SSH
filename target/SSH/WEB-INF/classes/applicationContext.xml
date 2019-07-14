@@ -27,6 +27,13 @@
     </bean>
 
     <!-- 配置Hibernate SessionFactory相关属性 -->
+
+
+    <!-- 注解实现事物管理 -->
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <!-- 注入连接池 -->
         <property name="dataSource" ref="dataSource"/>
@@ -45,20 +52,14 @@
         </property>
         <property name="mappingLocations">
             <list>
-                <value>classpath:com/csu/wwj/model/UserEntity.hbm.xml</value>
+                <value>classpath:com/csu/wwj/model/User.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>com.csu.wwj.model.UserEntity</value>
+                <value>com.csu.wwj.model.User</value>
             </list>
         </property>
-
-    </bean>
-
-    <!-- 注解实现事物管理 -->
-    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
     <tx:annotation-driven transaction-manager="txManager"/>

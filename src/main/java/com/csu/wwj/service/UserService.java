@@ -1,8 +1,8 @@
 package com.csu.wwj.service;
 
-import com.csu.wwj.model.UserEntity;
+import com.csu.wwj.model.User;
 
 public interface UserService {
-    UserEntity getUser(String name);
-    void saveUser(UserEntity user);
+    User getUser(String name);
+    void saveUser(User user);
 }

@@ -1,6 +1,6 @@
 package com.csu.wwj.action;
 
-import com.csu.wwj.model.UserEntity;
+import com.csu.wwj.model.User;
 import com.csu.wwj.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.context.annotation.Scope;
@@ -11,12 +11,12 @@ import javax.annotation.Resource;
 @Controller("userAction")
 @Scope("prototype")
 public class UserAction extends ActionSupport {
-    private UserEntity user;
+    private User user;
 
     @Resource
     private UserService userService;
 
-    public UserEntity getUser(){
+    public User getUser(){
         return user;
     }
 
@@ -27,7 +27,7 @@ public class UserAction extends ActionSupport {
     }
 
     public String saveUser(){
-        UserEntity user = new UserEntity();
+        User user = new User();
         user.setAge(20);
         user.setPhone("18373970220");
         user.setSex("male");
